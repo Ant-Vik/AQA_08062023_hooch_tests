@@ -1,31 +1,14 @@
+
 class StartPageConstantsLocators:
-    URL = "https://www.slotozilla.com/"
-    ISE_CASINO_XPATH = ".//div[@data-pid='ice-casino-wb-en']"
-    FAQ_FIRST_QUESTIONS_XPATH = (".//h3[contains(text(),'Why is it important to choose a casino that is licensed and "
-                                 "regulated?')]")
-
-
-
-
-
-from bs4 import BeautifulSoup
-
-html_content = """<div class="post">
-    <h2 class="title">Заголовок поста</h2>
-    <p class="content">Зміст поста...</p>
-</div>
-<div class="post">
-    <h2 class="title">Інший заголовок</h2>
-    <p class="content">Інший зміст...</p>
-</div>"""
-soup = BeautifulSoup(html_content, 'html.parser')
-
-# Вибір всіх елементів з класом "post"
-post_elements = soup.select('.post')
-
-for post in post_elements:
-    title = post.select_one('.title').text
-    content = post.select_one('.content').text
-    print(f"Заголовок: {title}")
-    print(f"Зміст: {content}")
-    print("------")
+    URL = "https://los-casino.com/"
+    EN_LANG_XPATH = ".//span[@class='lang-toggle-block__item current-lang en']"
+    ALL_REGS_BUTTON_XPATH = ".//div[@class='btn--wrap']"
+    FIRST_DEMO_IN_PAGE_XPATH = ".//img[@alt='Book of Pharao']"
+    LOGO_MAIN_PAGE_XPATH = ".//div[@class='logo']"
+    BURGER_MENU_XPATH = ".//div[@class='mobile_menu_icon league-of-slots-casino']"
+    REGISTER_AT_LEAGUE_OF_SLOTS_XPATH = ".//h2[@id='How to Register at League of Slots']"
+    SPAN_SCROLL_TO_TOP_XPATH = ".//span[@class='scroll-top league-of-slots-casino']"
+    FOOTER_ICONS_MOBILE_XPATH = (".//img[@data-original='https://los-casino.com/wp-content/uploads/sites/36749/2023"
+                                 "/03/Vector.svg']")
+    FOOTER_COPYRIGHT_XPATH_XPATH = ".//div[@class='copyright']"
+    MAILTO_HELP_LINK_XPATH_XPATH = ".//a[@href='mailto:help@leagueofslots.com']"
