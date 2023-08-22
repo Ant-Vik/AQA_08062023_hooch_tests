@@ -12,6 +12,6 @@ class TestExample:
         options.add_argument("--incognito")
         driver = webdriver.Chrome(options=options)
         driver.maximize_window()
-        driver.get("http://google.com")
+        driver.get("https://los-casino.com/")
         time.sleep(5)
         driver.quit()
