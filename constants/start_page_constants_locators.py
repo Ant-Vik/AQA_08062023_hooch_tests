@@ -12,3 +12,5 @@ class StartPageConstantsLocators:
                                  "/03/Vector.svg']")
     FOOTER_COPYRIGHT_XPATH_XPATH = ".//div[@class='copyright']"
     MAILTO_HELP_LINK_XPATH_XPATH = ".//a[@href='mailto:help@leagueofslots.com']"
+
+    SEARCH_H2_IN_PAGE = "//h2[contains(., 'How We Select the Best Online Casinos')]"
