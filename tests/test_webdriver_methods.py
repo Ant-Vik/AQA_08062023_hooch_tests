@@ -110,6 +110,8 @@ class Configure:
 conf = Configure()
 
 
+"""tests"""
+
 def test_compare_url():
     assert conf.driver_current_url(url) == "https://vulkanbet.club/"
 
