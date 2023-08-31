@@ -20,7 +20,7 @@ class Configure:
         driver = webdriver.Chrome(options=options)
         driver.maximize_window()
         sleep(1)
-        driver.get(url)
+        driver.get(url)  # Открываем сайт по урлу
         return driver.current_url
 
 
@@ -30,14 +30,10 @@ class Configure:
         options.add_argument("--incognito")
         driver = webdriver.Chrome(options=options)
         driver.maximize_window()
-        sleep(2)
         driver.get(url)
-        sleep(2)
-        h2 = driver.find_element(By.XPATH, value=StartPageConstantsLocators.SEARCH_H1_IN_PAGE)
-        h2_text = h2.text
-        sleep(2)
-        return h2_text
-
+        h1 = driver.find_element(By.XPATH, value=StartPageConstantsLocators.SEARCH_H1_IN_PAGE)  # Находим h1 элемент
+        h1_text = h1.text  # Превращаем найденный элемент в текст
+        return h1_text
 
     def driver_get_tag(self, url):
         options = ChromeOptions()
@@ -45,11 +41,9 @@ class Configure:
         options.add_argument("--incognito")
         driver = webdriver.Chrome(options=options)
         driver.maximize_window()
-        sleep(2)
         driver.get(url)
-        sleep(2)
-        tag_a = driver.find_element(By.TAG_NAME, value='a')
-        href_value = tag_a.get_attribute('href')
+        tag_a = driver.find_element(By.TAG_NAME, value='a')  # Находим тег а на странице
+        href_value = tag_a.get_attribute('href')  # Находим значение атрибута href
         return href_value
 
     def driver_header_menu_first_item(self, url):
@@ -59,7 +53,8 @@ class Configure:
         driver = webdriver.Chrome(options=options)
         driver.maximize_window()
         driver.get(url)
-        menu_item = driver.find_element(By.XPATH, value=StartPageConstantsLocators.HEADER_MENU_FIRST_ITEM)
+        menu_item = driver.find_element(By.XPATH, value=StartPageConstantsLocators.HEADER_MENU_FIRST_ITEM)  # Находим
+        # первый пункт меню на странице
         menu_item_text = menu_item.text
         return menu_item_text
 
@@ -71,12 +66,15 @@ class Configure:
         driver = webdriver.Chrome(options=options)
         driver.maximize_window()
         driver.get(url)
-        find_second_demo = driver.find_elements(By.XPATH, value=DemoConstants.ALL_DEMOS_IN_PAGE)
-        second_demo = find_second_demo[1]
-        find_button_demo = second_demo.find_element(By.XPATH, value=DemoConstants.SLOT_BUTTON)
-        find_button_link_demo = find_button_demo.find_elements(By.TAG_NAME, 'a')
-        second_demo_button = find_button_link_demo[1]
-        href_button_link_demo = second_demo_button.get_attribute('href')
+        find_second_demo = driver.find_elements(By.XPATH, value=DemoConstants.ALL_DEMOS_IN_PAGE)  # Находим все демки
+        # на странице
+        second_demo = find_second_demo[1]  # Выбираем из списка демок второй по порядку элемент
+        find_button_demo = second_demo.find_element(By.XPATH, value=DemoConstants.SLOT_BUTTON)  # Находим кнопки
+        # второй демки на странице
+        find_button_link_demo = find_button_demo.find_elements(By.TAG_NAME, 'a')  # Находим тег в котором указанны
+        # ссылки на кнопки
+        second_demo_button = find_button_link_demo[1]  # Выбираем из двух ссылок ссылку на демку
+        href_button_link_demo = second_demo_button.get_attribute('href')  # Смотрим искомую ссылку
         return href_button_link_demo
 
     def driver_search_list(self, url):
@@ -86,10 +84,10 @@ class Configure:
         driver = webdriver.Chrome(options=options)
         driver.maximize_window()
         driver.get(url)
-        find_ul_list = driver.find_elements(By.CSS_SELECTOR, value='ul')
-        second_ul_list = find_ul_list[2]
-        find_li_in_ul_list = second_ul_list.find_elements(By.TAG_NAME, value='li')
-        list_li_text = find_li_in_ul_list[0].text
+        find_ul_list = driver.find_elements(By.CSS_SELECTOR, value='ul')  # Ищем таблицу на странице
+        second_ul_list = find_ul_list[2]  # Выбираем нужную нам таблицу из списка
+        find_li_in_ul_list = second_ul_list.find_elements(By.TAG_NAME, value='li')  # Находим в таблице элементы li
+        list_li_text = find_li_in_ul_list[0].text  # Выбираем первый элемент li из списка элементов
         return list_li_text
 
     def driver_banner(self, url):
@@ -99,10 +97,13 @@ class Configure:
         driver = webdriver.Chrome(options=options)
         driver.maximize_window()
         driver.get(url)
-        header_banner = driver.find_element(By.XPATH, value=StartPageConstantsLocators.HEADER_BANNER)
-        header_banner_picture = header_banner.find_element(By.TAG_NAME, 'picture')
-        header_banner_img = header_banner_picture.find_element(By.TAG_NAME, 'img')
-        header_banner_img_attribute = header_banner_img.get_attribute('src')
+        header_banner = driver.find_element(By.XPATH, value=StartPageConstantsLocators.HEADER_BANNER)  # Находим
+        # контейнер с баннером
+        header_banner_picture = header_banner.find_element(By.TAG_NAME, 'picture')  # Находим элемент в котором лежат
+        # изображения баннера
+        header_banner_img = header_banner_picture.find_element(By.TAG_NAME, 'img')  # Находим тег в котором по
+        # атрибуту находится изображение
+        header_banner_img_attribute = header_banner_img.get_attribute('src')  # Находим изображение баннера
         return header_banner_img_attribute
 
 
