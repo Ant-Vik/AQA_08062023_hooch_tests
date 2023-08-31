@@ -1,6 +1,5 @@
-
 class StartPageConstantsLocators:
-    URL = "https://los-casino.com/"
+    URL = 'https://vulkanbet.club/'
     EN_LANG_XPATH = ".//span[@class='lang-toggle-block__item current-lang en']"
     ALL_REGS_BUTTON_XPATH = ".//div[@class='btn--wrap']"
     FIRST_DEMO_IN_PAGE_XPATH = ".//img[@alt='Book of Pharao']"
@@ -13,10 +12,6 @@ class StartPageConstantsLocators:
     FOOTER_COPYRIGHT_XPATH_XPATH = ".//div[@class='copyright']"
     MAILTO_HELP_LINK_XPATH_XPATH = ".//a[@href='mailto:help@leagueofslots.com']"
 
-
-
-
     SEARCH_H1_IN_PAGE = "//h1[@class='name']"
     HEADER_MENU_FIRST_ITEM = "//li[@id='menu-item-1214']"
     HEADER_BANNER = ".//div[@class='header_banner']"
-
