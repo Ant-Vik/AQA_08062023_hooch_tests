@@ -1,4 +1,4 @@
-from constants.start_page_constants_locators import StartPageConstantsLocators
+from constants.start_page_constants import StartPageConstantsLocators
 from constants.demo_page_constants import DemoConstants
 from time import sleep
 from selenium.webdriver import Keys
@@ -12,7 +12,6 @@ url = 'https://vulkanbet.club/'
 
 class Configure:
 
-
     def driver_current_url(self, url):
         options = ChromeOptions()
         options.headless = False
@@ -22,7 +21,6 @@ class Configure:
         sleep(1)
         driver.get(url)  # Открываем сайт по урлу
         return driver.current_url
-
 
     def driver_get_h1(self, url):
         options = ChromeOptions()
@@ -57,7 +55,6 @@ class Configure:
         # первый пункт меню на странице
         menu_item_text = menu_item.text
         return menu_item_text
-
 
     def driver_search_second_demo(self, url):
         options = ChromeOptions()
@@ -109,8 +106,8 @@ class Configure:
 
 conf = Configure()
 
-
 """tests"""
+
 
 def test_compare_url():
     assert conf.driver_current_url(url) == "https://vulkanbet.club/"
@@ -123,14 +120,18 @@ def test_get_h1():
 def test_tag_a_href():
     assert conf.driver_get_tag(url) == "https://vulkanbet.club/go/logo/"
 
+
 def test_menu():
     assert conf.driver_header_menu_first_item(url) == "ONLINE CASINO"
+
 
 def test_search_second_demo():
     assert conf.driver_search_second_demo(url) == "https://vulkanbet.club/ultra-hot-deluxe/"
 
+
 def test_search_list():
     assert conf.driver_search_list(url) == "Sweet Life;"
+
 
 def test_banner_src():
     assert conf.driver_banner(url) == "https://vulkanbet.club/wp-content/uploads/sites/10004/heroimg-1.jpg"

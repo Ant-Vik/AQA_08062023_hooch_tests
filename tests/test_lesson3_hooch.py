@@ -1,5 +1,5 @@
 from pages.start_page import StartPage
-from constants.start_page_constants_locators import StartPageConstantsLocators
+from constants.start_page_constants import StartPageConstantsLocators
 from constants.expected_results.start_page_ex_res import StartPageER
 
 start_page = StartPage()
@@ -11,21 +11,25 @@ def test_compare_url():
     assert start_page.driver_current_url(StartPageConstantsLocators.URL) == StartPageER.ex_res_url
 
 
+def test_get_h1():
+    assert start_page.driver_get_h1(StartPageConstantsLocators.URL) == StartPageER.ex_res_get_h1
+
+
 def test_tag_a_href():
-    assert start_page.driver_get_tag(StartPageConstantsLocators.URL) == "https://vulkanbet.club/go/logo/"
+    assert start_page.driver_get_tag(StartPageConstantsLocators.URL) == StartPageER.ex_res_a_href_logo
 
 
 def test_menu():
-    assert start_page.driver_header_menu_first_item(StartPageConstantsLocators.URL) == "ONLINE CASINO"
+    assert start_page.driver_header_menu_first_item(StartPageConstantsLocators.URL) == StartPageER.ex_res_first_menu_item
 
 
 def test_search_second_demo():
-    assert conf.driver_search_second_demo(url) == "https://vulkanbet.club/ultra-hot-deluxe/"
+    assert start_page.driver_search_second_demo(StartPageConstantsLocators.URL) == StartPageER.ex_res_second_demo
 
 
 def test_search_list():
-    assert conf.driver_search_list(url) == "Sweet Life;"
+    assert start_page.driver_search_list(StartPageConstantsLocators.URL) == StartPageER.ex_res_first_list_item
 
 
 def test_banner_src():
-    assert conf.driver_banner(url) == "https://vulkanbet.club/wp-content/uploads/sites/10004/heroimg-1.jpg"
+    assert start_page.driver_banner(StartPageConstantsLocators.URL) == StartPageER.ex_res_banner_src
