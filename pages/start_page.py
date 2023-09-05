@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 
 
 class StartPage(BasePage):
-    def __int__(self):
+    def __init__(self):
         super().__init__()
 
     def driver_current_url(self, url):
