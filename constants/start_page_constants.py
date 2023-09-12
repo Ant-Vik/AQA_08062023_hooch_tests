@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 
 class StartPageConstantsLocators:
     URL = 'https://vulkanbet.club/'
+    LOGO_URL = 'https://vulkanbet.club/go/logo/'
     EN_LANG_XPATH = ".//span[@class='lang-toggle-block__item current-lang en']"
     ALL_REGS_BUTTON_XPATH = ".//div[@class='btn--wrap']"
     FIRST_DEMO_IN_PAGE_XPATH = ".//img[@alt='Book of Pharao']"

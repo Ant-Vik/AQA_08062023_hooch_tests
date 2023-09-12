@@ -10,28 +10,28 @@ class StartPage(BasePage):
     def __init__(self):
         super().__init__()
 
-    def driver_current_url(self, url):
-        # Открываем сайт по урлу
-        self.driver.get(url)
-        return self.driver.current_url
+    # def driver_current_url(self, url):
+    #     # Открываем сайт по урлу
+    #     self.driver.get(url)
+    #     return self.driver.current_url
 
-    def driver_get_h1(self, url):
-        self.driver.get(url)
-        # Находим h1 элемент
-        h1 = self.driver.find_element(*StartPageConstantsLocators.SEARCH_H1_IN_PAGE)
-        # Превращаем найденный элемент в текст
-        h1_text = h1.text
-        return h1_text
+    # def driver_get_h1(self, url):
+    #     self.driver.get(url)
+    #     # Находим h1 элемент
+    #     h1 = self.driver.find_element(*StartPageConstantsLocators.SEARCH_H1_IN_PAGE)
+    #     # Превращаем найденный элемент в текст
+    #     h1_text = h1.text
+    #     return h1_text
 
-    def driver_get_tag(self, url):
-        self.driver.get(url)
-        # Находим тег, а на странице
-        # tag_a = self.driver.find_element(By.TAG_NAME, value='a')
-        # Строка нужна для ожидания появления элемента
-        tag_a = self.wait.until(EC.visibility_of_element_located((By.TAG_NAME, 'a')))
-        # Находим значение атрибута href
-        href_value = tag_a.get_attribute('href')
-        return href_value
+    # def driver_get_tag(self, url):
+    #     self.driver.get(url)
+    #     # Находим тег, а на странице
+    #     # tag_a = self.driver.find_element(By.TAG_NAME, value='a')
+    #     # Строка нужна для ожидания появления элемента
+    #     tag_a = self.wait.until(EC.visibility_of_element_located((By.TAG_NAME, 'a')))
+    #     # Находим значение атрибута href
+    #     href_value = tag_a.get_attribute('href')
+    #     return href_value
 
     def driver_header_menu_first_item(self, url):
         self.driver.get(url)
