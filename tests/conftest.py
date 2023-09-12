@@ -46,14 +46,16 @@ def driver_run_brows():
 
 @pytest.fixture()
 def driver_get_h1(driver_run_brows):
-    h1 = driver_run_brows.find_element(*StartPageConstantsLocators.SEARCH_H1_IN_PAGE)
+    driver = driver_run_brows
+    h1 = driver.find_element(*StartPageConstantsLocators.SEARCH_H1_IN_PAGE)
     h1_text = h1.text
     return h1_text
 
 
 @pytest.fixture(scope="function")
 def driver_get_tag(driver_run_brows):
-    wait = WebDriverWait(driver_run_brows, 10)
+    driver = driver_run_brows
+    wait = WebDriverWait(driver, 10)
     tag_a = wait.until(EC.visibility_of_element_located((By.TAG_NAME, 'a')))
     href_value = tag_a.get_attribute('href')
     return href_value
