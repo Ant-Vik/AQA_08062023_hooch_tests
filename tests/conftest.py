@@ -35,35 +35,25 @@ def logger_fixture():
 
 
 @pytest.fixture(scope="function")
-def driver_google():
-    # create driver
-    driver = webdriver.Chrome()
-    driver.implicitly_wait(10)
-    driver.maximize_window()
-    driver.get(StartPageConstantsLocators.URL)
-    return driver.current_url
-
-
-@pytest.fixture(scope="function")
-def driver_get_h1():
+def driver_run_brows():
     options = ChromeOptions()
     options.headless = False
     options.add_argument("--incognito")
     driver = webdriver.Chrome(options=options)
     driver.get(StartPageConstantsLocators.URL)
-    h1 = driver.find_element(*StartPageConstantsLocators.SEARCH_H1_IN_PAGE)
+    return driver
+
+
+@pytest.fixture()
+def driver_get_h1(driver_run_brows):
+    h1 = driver_run_brows.find_element(*StartPageConstantsLocators.SEARCH_H1_IN_PAGE)
     h1_text = h1.text
     return h1_text
 
 
 @pytest.fixture(scope="function")
-def driver_get_tag():
-    options = ChromeOptions()
-    options.headless = False
-    options.add_argument("--incognito")
-    driver = webdriver.Chrome(options=options)
-    driver.get(StartPageConstantsLocators.URL)
-    wait = WebDriverWait(driver, 10)
+def driver_get_tag(driver_run_brows):
+    wait = WebDriverWait(driver_run_brows, 10)
     tag_a = wait.until(EC.visibility_of_element_located((By.TAG_NAME, 'a')))
     href_value = tag_a.get_attribute('href')
     return href_value

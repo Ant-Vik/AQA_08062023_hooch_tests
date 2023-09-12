@@ -8,7 +8,7 @@ start_page = StartPage()
 """tests"""
 
 
-def test_compare_url(logger_fixture, driver_google):
+def test_compare_url(logger_fixture, driver_run_brows):
     assert StartPageConstantsLocators.URL == StartPageER.ex_res_url
     log = logger_fixture
     log.info('test_compare_url был запущен')
