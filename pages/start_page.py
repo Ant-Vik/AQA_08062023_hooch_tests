@@ -1,3 +1,5 @@
+from selenium.webdriver.support import expected_conditions as EC
+
 from constants.start_page_constants import StartPageConstantsLocators
 from pages.base_page import BasePage
 from constants.demo_page_constants import DemoConstants
@@ -16,7 +18,7 @@ class StartPage(BasePage):
     def driver_get_h1(self, url):
         self.driver.get(url)
         # Находим h1 элемент
-        h1 = self.driver.find_element(By.XPATH, value=StartPageConstantsLocators.SEARCH_H1_IN_PAGE)
+        h1 = self.driver.find_element(*StartPageConstantsLocators.SEARCH_H1_IN_PAGE)
         # Превращаем найденный элемент в текст
         h1_text = h1.text
         return h1_text
@@ -24,7 +26,9 @@ class StartPage(BasePage):
     def driver_get_tag(self, url):
         self.driver.get(url)
         # Находим тег, а на странице
-        tag_a = self.driver.find_element(By.TAG_NAME, value='a')
+        # tag_a = self.driver.find_element(By.TAG_NAME, value='a')
+        # Строка нужна для ожидания появления элемента
+        tag_a = self.wait.until(EC.visibility_of_element_located((By.TAG_NAME, 'a')))
         # Находим значение атрибута href
         href_value = tag_a.get_attribute('href')
         return href_value
